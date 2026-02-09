@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Product from "./Products/product";
+import UseMemo from "./UseMemo/useMemo";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Product />} />
+        <Route path="/use-memo" element={<UseMemo/>} />
       </Routes>
     </BrowserRouter>
   );
