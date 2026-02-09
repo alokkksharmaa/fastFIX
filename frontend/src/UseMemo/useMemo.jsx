@@ -12,12 +12,13 @@ const UseMemo = () => {
       <h1>UseMemo Example</h1>
       <p>Count: {count}</p>
       <p>Double Count: {doubleCount()}</p>
-      <button onClick={() => setCount(count + 1)}>Increment</button>  
-      <hr>
-      </hr>
-      <br>
-      </br>
-      <input type="text" placeholder="type" value={text} onChange={(e) => setText(e.target.value)} />
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <br />
+      <input
+        type="text"
+        placeholder="type"
+        value={text}
+        onChange={(e) => setText(e.target.value)}/>
     </div>
   );
 };
