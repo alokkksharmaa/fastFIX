@@ -14,11 +14,7 @@ const UseMemo = () => {
       <p>Double Count: {doubleCount()}</p>
       <button onClick={() => setCount(count + 1)}>Increment</button>
       <br />
-      <input
-        type="text"
-        placeholder="type"
-        value={text}
-        onChange={(e) => setText(e.target.value)}/>
+      <input type="text" placeholder="type" value={text} onChange={(e) => setText(e.target.value)}/>
     </div>
   );
 };
