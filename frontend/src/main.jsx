@@ -1,13 +1,15 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import "./index.css";
-import App from "./App.jsx";
-import { CounterProvider } from "./context/counterContext.jsx";
+// main.jsx
+import React from 'react';
+import { createRoot } from 'react-dom/client';   // ← update import
+import App from './App';
+import { ShopProvider } from './context/shopContext';
+import './index.css';
 
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <CounterProvider>
+const root = createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <ShopProvider>
       <App />
-    </CounterProvider>
-  </StrictMode>,
+    </ShopProvider>
+  </React.StrictMode>
 );

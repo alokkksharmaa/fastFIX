@@ -1,32 +1,22 @@
 // src/App.jsx
-import { CounterProvider } from './context/CounterContext';
-import CounterDisplay from './components/CounterDisplay';
-import CounterButtons from './components/CounterButtons';
+import { ShopProvider } from './context/shopContext';
+import ProductList from './components/ProductList';
+import Cart from './components/Cart';
 
 function App() {
   return (
-    <CounterProvider>
-      <div style={{ 
-        fontFamily: 'sans-serif', 
-        textAlign: 'center', 
-        padding: '2rem' 
-      }}>
-        <h1>Counter with Context</h1>
-        
-        <CounterDisplay />
-        <CounterButtons />
-        
-        {/* Deeply nested component would still work */}
-        <div style={{ marginTop: '2rem' }}>
-          <NestedComponent />
+    <ShopProvider>
+      <h1>Shop</h1>
+      <div style={{ display: 'flex', gap: '2rem' }}>
+        <div style={{ flex: 3 }}>
+          <ProductList />
+        </div>
+        <div style={{ flex: 1 }}>
+          <Cart />
         </div>
       </div>
-    </CounterProvider>
+    </ShopProvider>
   );
-}
-
-function NestedComponent() {
-  return <CounterButtons variant="small" />;
 }
 
 export default App;

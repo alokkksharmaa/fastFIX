@@ -1,6 +1,6 @@
 # Environment variables
 .env
-.exe
+.exe/
 
 # Dependencies
 node_modules/
