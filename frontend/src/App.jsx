@@ -1,13 +1,9 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import UseMemo from "./UseMemo/useMemo";
+// App.jsx
+import { MyProvider } from './Hooks/useContext';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/use-memo" element={<UseMemo/>} />
-      </Routes>
-    </BrowserRouter>
+    <MyProvider/>
   );
 }
 
