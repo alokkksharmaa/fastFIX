@@ -1,19 +1,18 @@
 // src/App.jsx
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect } from "react";
 
-// 1. Create Context
 const ShopContext = createContext();
 
-// 2. Provider (very short)
 function ShopProvider({ children }) {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
+  const [increment, setIncrement] = useState(0);
+  const [decrement, setDecrement] = useState(0);
 
-  // Fetch once on mount
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products') 
-      .then(res => res.json())
-      .then(data => setProducts(data));
+    fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
   }, []);
 
   const addToCart = (product) => {
@@ -21,7 +20,8 @@ function ShopProvider({ children }) {
   };
 
   return (
-    <ShopContext.Provider value={{ products, cart, addToCart }}>
+    <ShopContext.Provider
+      value={{ products, cart, addToCart, increment, setIncrement, decrement, setDecrement }}>
       {children}
     </ShopContext.Provider>
   );
@@ -32,17 +32,25 @@ function useShop() {
   return useContext(ShopContext);
 }
 
-// ────────────────────────────────────────────────
-// Main App
-// ────────────────────────────────────────────────
-
 export default function App() {
   return (
     <ShopProvider>
-      <div style={{ padding: "20px", maxWidth: "900px", margin: "0 auto" }}>
+      <div
+        style={{
+          padding: "20px",
+          maxWidth: "900px",
+          margin: "0 auto",
+          fontFamily: "sans-serif",
+        }}
+      >
         <h1>Simple Shop</h1>
-
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "20px",
+          }}
+        >
           <ProductsList />
           <CartList />
         </div>
@@ -74,7 +82,9 @@ function ProductsList() {
             alt={p.title}
             style={{ width: "100%", height: "140px", objectFit: "contain" }}
           />
-          <h4 style={{ margin: "10px 0 6px", fontSize: "1.1rem" }}>{p.title}</h4>
+          <h4 style={{ margin: "10px 0 6px", fontSize: "1.1rem" }}>
+            {p.title}
+          </h4>
           <p style={{ margin: "0 0 10px", fontWeight: "bold" }}>${p.price}</p>
           <button
             onClick={() => addToCart(p)}
@@ -85,8 +95,7 @@ function ProductsList() {
               padding: "8px 16px",
               borderRadius: "4px",
               cursor: "pointer",
-            }}
-          >
+            }}>
             Add to Cart
           </button>
         </div>
@@ -115,8 +124,7 @@ function CartList() {
             }}
           >
             <strong>{item.title}</strong>
-            <br />
-            ${item.price}
+            <br />${item.price}
           </div>
         ))}
       </div>
