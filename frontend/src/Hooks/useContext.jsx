@@ -1,15 +1,32 @@
-import { createContext } from "react";
+import { createContext, useContext, useState } from "react";
 
-const MyContext = createContext();
+const CounterContext = createContext();
 
-const MyProvider = ({ children }) => {
+export function counterProvider({ children }) {
   const [count, setCount] = useState(0);
-  const sharedValue = "Hello from Context!";
+
+  const increment = () => setCount((prev) => prev + 1);
+  const decrement = () => setCount((prev) => prev - 1);
+  const reset = () => setCount(0);
+
+  const value = {
+    count,
+    increment,
+    decrement,
+    reset,
+    incrementBy,
+  };
   return (
-    <MyContext.Provider value={{ sharedValue, count, setCount }}>
-      {children}
-    </MyContext.Provider>
+    <CounterContext.Provider value={value}>{children}</CounterContext.Provider>
   );
 }
-export { MyProvider };
-export default MyContext;
+
+export function useCounter() {
+  const context = useContext(CounterContext);
+
+  if (!context) {
+    throw new Error("user must be within a counterProvider");
+  }
+
+  return context;
+}

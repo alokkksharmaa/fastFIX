@@ -1,13 +1,13 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import { MyProvider } from './Hooks/useContext';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
+import { CounterProvider } from "./context/counterContext.jsx";
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <MyProvider>
-    <App />
-    </MyProvider>
-  </StrictMode>
-)
+    <CounterProvider>
+      <App />
+    </CounterProvider>
+  </StrictMode>,
+);
