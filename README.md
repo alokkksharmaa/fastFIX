@@ -5,7 +5,7 @@ Real Estate API
 A secure, scalable, role-based backend system for managing property listings.  
 Built with **Node.js, Express, MongoDB**, and protected using **JWT Authentication** with **Role-Based Access Control (RBAC)**.
 
-This project is designed to behave like a real-world production backend—clean architecture, predictable APIs, and strict access control.
+This project is designed to be like a real-world production backend—clean architecture, predictable APIs, and strict access control.
 
 ---
 
