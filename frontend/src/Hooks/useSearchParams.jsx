@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
-const useSearchParams = () => {
+const SearchParams = () => {
   const [products, setProducts] = useState([]);
-  const [searchParams, setSerachParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const category = searchParams.get("category");
 
   useEffect(() => {
+    if (!category) return;
+
     fetch(`https://dummyjson.com/products/category/${category}`)
       .then((res) => res.json())
       .then((data) => setProducts(data.products));
@@ -23,4 +26,4 @@ const useSearchParams = () => {
   );
 };
 
-export default useSearchParams;
+export default SearchParams;

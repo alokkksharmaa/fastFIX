@@ -1,12 +1,10 @@
 // src/App.jsx
-
-import React from "react";
-import useLayOut from "./Hooks/useLayOut";
+import SearchParams from "./Hooks/useSearchParams";
 
 const App = () => {
   return (
     <div>
-      <useLayOut/>
+      <SearchParams />
     </div>
   );
 };
