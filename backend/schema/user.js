@@ -28,4 +28,4 @@ userSchema.pre("save", async function () {
 });
 
 
-export default mongoose.model("User", userSchema, "backend");
+export default mongoose.model("User", userSchema);
