@@ -1,9 +1,5 @@
 import mongoose from "mongoose";
 
-mongoose.connect('mongodb://localhost:27017/')
-  .then(() => console.log("Db connected"))
-  .catch((error) => console.log(error));
-
 const adminSchema = new mongoose.Schema({
   name:{
     type: String,
