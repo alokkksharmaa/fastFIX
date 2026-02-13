@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import User from './schema/user.js';
 // import Admin from './schema/admin.js'
+import Marks from "./schema/marks.js";
 
 const app = express();
 const PORT = 3000;
@@ -51,11 +52,11 @@ app.put("/api/users/:id", async (req, res) => {
 
 
 // delete
-app.delete("/api/users/:id", async (req, res) =>{
-  try{
-    const deleteUser  = await User.findByIdAndDelete(req.params.id);
+app.delete("/api/users/:id", async (req, res) => {
+  try {
+    const deleteUser = await User.findByIdAndDelete(req.params.id);
     res.status(200).json(deleteUser);
-  }catch(error){
+  } catch (error) {
     res.status(400).json({ message: error.message });
   }
 })
@@ -68,6 +69,17 @@ app.delete("/api/users/:id", async (req, res) =>{
 //     res.status(400).json({ message: error.message })
 //   }
 // })
+
+
+app.post("/api/marks", async (req, res) => {
+  try {
+    const newMarks = await Marks.create(req.body);
+    res.status(201).json(newMarks);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
 
 // DB Connection + Server Start
 mongoose.connect(DB_URL)

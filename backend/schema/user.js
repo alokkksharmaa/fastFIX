@@ -4,7 +4,8 @@ import bcrypt from "bcryptjs";
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true
+    required: true,
+    trim: true
   },
   email: {
     type: String,
@@ -15,9 +16,11 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
-    minlength: 6
+    minlength: 6,
+    select: false   // hides password in queries
   }
-},{ timestamps: true });
+}, { timestamps: true });
+
 
 // Hash password before saving
 userSchema.pre("save", async function () {
@@ -26,6 +29,5 @@ userSchema.pre("save", async function () {
   const salt = await bcrypt.genSalt(10);
   this.password = await bcrypt.hash(this.password, salt);
 });
-
 
 export default mongoose.model("User", userSchema);
