@@ -75,7 +75,7 @@ app.post("/api/marks", async (req, res) => {
   try {
     const newMarks = await Marks.create(req.body);
     res.status(201).json(newMarks);
-  } catch (error) {
+  }catch (error) {
     res.status(400).json({ message: error.message });
   }
 });

@@ -1,9 +1,10 @@
 import mongoose from "mongoose";
 
 const adminSchema = new mongoose.Schema({
-  name:{
+  name: {
     type: String,
     required: true,
+    limit: 20
   },
   email: {
     type: string,
@@ -13,7 +14,7 @@ const adminSchema = new mongoose.Schema({
   password: {
     type: string,
     unique: false,
-    required: true 
+    required: true
   }
 })
 
