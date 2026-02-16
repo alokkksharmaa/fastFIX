@@ -61,3 +61,9 @@ app.get("/dashboard", verifyToken, (req, res) => {
     role: req.user.role
   });
 });
+
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
+
+export default app;
