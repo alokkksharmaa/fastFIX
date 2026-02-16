@@ -1,8 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import User from './schema/user.js';
-// import Admin from './schema/admin.js'
-import Marks from "./schema/marks.js";
+
 
 
 const app = express();
