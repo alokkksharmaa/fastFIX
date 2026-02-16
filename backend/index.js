@@ -3,7 +3,6 @@ import mongoose from 'mongoose';
 import User from './schema/user.js';
 // import Admin from './schema/admin.js'
 import Marks from "./schema/marks.js";
-import { verify } from 'jsonwebtoken';
 
 const app = express();
 const PORT = 3000;
@@ -30,24 +29,38 @@ app.post("/api/users", async (req, res) => {
 
 
 
+// TOKEN VERIFICATION
+const verifyToken = (req, res, next) => {
+  const token = req.headers.authorization;
+
+  if (!token) {
+    return res.status(401).json({ message: "Token missing" });
+  }
+
+  if (token !== "1234") {
+    return res.status(403).json({ message: "Invalid token" });
+  }
+
+  next();
+};
 
 
-app.get("/api/login", verifyToken, async(req, res) =>  {
-  try{
-    const {email , password} = req.body;
+app.get("/api/login", verifyToken, async (req, res) => {
+  try {
+    const { email, password } = req.body;
 
-    const existingUser = await User.findOne({email , password})
-    if(!existingUser){
+    const existingUser = await User.findOne({ email, password })
+    if (!existingUser) {
       return res.json("Invalid credentials");
     }
 
-    if(existingUser.role === "ADMIN"){
-      return res.status(200).json({existingUser, message: `welcome ${existingUser.role}`})
+    if (existingUser.role === "ADMIN") {
+      return res.status(200).json({ existingUser, message: `welcome ${existingUser.role}` })
     }
 
     res.status(200).json(existingUser)
   }
-  catch(error){
+  catch (error) {
     return error;
   }
 })
