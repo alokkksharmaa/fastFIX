@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import User from './schema/user.js';
 // import Admin from './schema/admin.js'
 import Marks from "./schema/marks.js";
+import { verify } from 'jsonwebtoken';
 
 const app = express();
 const PORT = 3000;
@@ -26,6 +27,30 @@ app.post("/api/users", async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 });
+
+
+
+
+
+app.get("/api/login", verifyToken, async(req, res) =>  {
+  try{
+    const {email , password} = req.body;
+
+    const existingUser = await User.findOne({email , password})
+    if(!existingUser){
+      return res.json("Invalid credentials");
+    }
+
+    if(existingUser.role === "ADMIN"){
+      return res.status(200).json({existingUser, message: `welcome ${existingUser.role}`})
+    }
+
+    res.status(200).json(existingUser)
+  }
+  catch(error){
+    return error;
+  }
+})
 
 // get
 app.get("/api/users/:id", async (req, res) => {
@@ -75,7 +100,7 @@ app.post("/api/marks", async (req, res) => {
   try {
     const newMarks = await Marks.create(req.body);
     res.status(201).json(newMarks);
-  }catch (error) {
+  } catch (error) {
     res.status(400).json({ message: error.message });
   }
 });
