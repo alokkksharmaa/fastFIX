@@ -4,6 +4,7 @@ import User from './schema/user.js';
 // import Admin from './schema/admin.js'
 import Marks from "./schema/marks.js";
 
+
 const app = express();
 const PORT = 3000;
 const DB_URL = "mongodb://localhost:27017/backend";
@@ -26,6 +27,7 @@ app.post("/api/users", async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 });
+
 
 
 
