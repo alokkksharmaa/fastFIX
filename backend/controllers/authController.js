@@ -47,4 +47,36 @@ app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
 
-export default app;
+
+const approve = async (req, res) => {
+  try {
+    const project = await Project.findById(req.params.id);
+
+    if (!project) {
+      return res.status(404).json({ message: "Project not found" });
+    }
+
+    if (project.status !== "pending") {
+      return res.status(200).json({
+        message: `Project already ${project.status}`,
+      });
+    }
+
+    project.status = "approved";
+    await project.save();
+
+    return res.status(200).json({
+      message: "Project approved successfully",
+      project,
+    });
+
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      message: "Server Error",
+    });
+  }
+};
+
+
+export default {app, approve};
