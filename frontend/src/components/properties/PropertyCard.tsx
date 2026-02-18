@@ -23,7 +23,11 @@ export default function PropertyCard({ property }: { property: Property }) {
   const status = STATUS_CONFIG[property.status];
 
   const formatPrice = (price: number) =>
-    new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(price);
+    new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "INR",
+      maximumFractionDigits: 0,
+    }).format(price);
 
   return (
     <div className="group rounded-xl overflow-hidden border border-border bg-card shadow-card hover:shadow-md transition-all duration-200 flex flex-col">
@@ -37,13 +41,28 @@ export default function PropertyCard({ property }: { property: Property }) {
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-muted-foreground">
-            <svg className="w-12 h-12 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+            <svg
+              className="w-12 h-12 opacity-30"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1}
+                d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"
+              />
             </svg>
           </div>
         )}
         {/* Status badge overlay */}
-        <span className={cn("absolute top-3 left-3 text-xs font-semibold px-2.5 py-1 rounded-full", status.cls)}>
+        <span
+          className={cn(
+            "absolute top-3 left-3 text-xs font-semibold px-2.5 py-1 rounded-full",
+            status.cls,
+          )}
+        >
           {status.label}
         </span>
         {/* Image count */}
@@ -71,23 +90,41 @@ export default function PropertyCard({ property }: { property: Property }) {
         </div>
 
         {/* Specs */}
-        {(property.bedrooms !== undefined || property.bathrooms !== undefined || property.area) && (
+        {(property.bedrooms !== undefined ||
+          property.bathrooms !== undefined ||
+          property.area) && (
           <div className="flex items-center gap-3 text-xs text-muted-foreground mb-3">
             {property.bedrooms !== undefined && property.bedrooms > 0 && (
-              <span className="flex items-center gap-1"><Bed className="w-3.5 h-3.5" />{property.bedrooms} bd</span>
+              <span className="flex items-center gap-1">
+                <Bed className="w-3.5 h-3.5" />
+                {property.bedrooms} bd
+              </span>
             )}
             {property.bathrooms !== undefined && (
-              <span className="flex items-center gap-1"><Bath className="w-3.5 h-3.5" />{property.bathrooms} ba</span>
+              <span className="flex items-center gap-1">
+                <Bath className="w-3.5 h-3.5" />
+                {property.bathrooms} ba
+              </span>
             )}
             {property.area && (
-              <span className="flex items-center gap-1"><Square className="w-3.5 h-3.5" />{property.area.toLocaleString()} sqft</span>
+              <span className="flex items-center gap-1">
+                <Square className="w-3.5 h-3.5" />
+                {property.area.toLocaleString()} sqft
+              </span>
             )}
           </div>
         )}
 
         <div className="mt-auto flex items-center justify-between">
-          <p className="text-xl font-bold text-primary">{formatPrice(property.price)}</p>
-          <Button asChild size="sm" variant="outline" className="gap-1.5 text-xs">
+          <p className="text-xl font-bold text-primary">
+            {formatPrice(property.price)}
+          </p>
+          <Button
+            asChild
+            size="sm"
+            variant="outline"
+            className="gap-1.5 text-xs"
+          >
             <Link to={`/properties/${property.id}`}>
               <Eye className="w-3.5 h-3.5" /> View Details
             </Link>
