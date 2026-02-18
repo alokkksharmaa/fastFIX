@@ -28,7 +28,7 @@ export default function PropertyCard({ property }: { property: Property }) {
   return (
     <div className="group rounded-xl overflow-hidden border border-border bg-card shadow-card hover:shadow-md transition-all duration-200 flex flex-col">
       {/* Image */}
-      <div className="relative h-48 overflow-hidden bg-muted flex-shrink-0">
+      <div className="relative h-48 overflow-hidden bg-muted shrink-0">
         {property.images[0] ? (
           <img
             src={property.images[0]}
@@ -60,13 +60,13 @@ export default function PropertyCard({ property }: { property: Property }) {
           <h3 className="font-semibold text-foreground text-base leading-snug line-clamp-2 group-hover:text-primary transition-colors">
             {property.title}
           </h3>
-          <Badge variant="outline" className="text-xs capitalize flex-shrink-0">
+          <Badge variant="outline" className="text-xs capitalize shrink-0">
             {TYPE_CONFIG[property.type]}
           </Badge>
         </div>
 
         <div className="flex items-center gap-1.5 text-muted-foreground text-sm mb-3">
-          <MapPin className="w-3.5 h-3.5 flex-shrink-0" />
+          <MapPin className="w-3.5 h-3.5 shrink-0" />
           <span className="truncate">{property.location}</span>
         </div>
 
