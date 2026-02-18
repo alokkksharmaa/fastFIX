@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useCallback, useEffect } from "react";
+import { jwtDecode } from "jwt-decode";
 import type { User, UserRole } from "@/lib/api";
 
 interface AuthContextValue {
@@ -16,17 +17,6 @@ const AuthContext = createContext<AuthContextValue | null>(null);
 const TOKEN_KEY = "re_token";
 const USER_KEY = "re_user";
 
-/** Decodes the role from a fake JWT payload (base64 middle segment). */
-function decodeToken(token: string): { role: UserRole; sub: string; name: string; email: string } | null {
-  try {
-    const parts = token.split(".");
-    if (parts.length < 2) return null;
-    return JSON.parse(atob(parts[1]));
-  } catch {
-    return null;
-  }
-}
-
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [token, setToken] = useState<string | null>(() => sessionStorage.getItem(TOKEN_KEY));
   const [user, setUser] = useState<User | null>(() => {
@@ -38,7 +28,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   });
 
-  const role: UserRole | null = token ? (decodeToken(token)?.role ?? null) : null;
+  const role: UserRole | null = user?.role ?? null;
 
   const login = useCallback((newToken: string, newUser: User) => {
     sessionStorage.setItem(TOKEN_KEY, newToken);
@@ -60,13 +50,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   );
 
   // Validate token expiry on mount
-  // Validate token expiry on mount
   useEffect(() => {
     if (token) {
-      const decoded = decodeToken(token);
-  
-      // exp is in seconds → convert to ms
-      if (!decoded || (decoded as any).exp * 1000 < Date.now()) {
+      try {
+        const decoded = jwtDecode<{ exp?: number }>(token);
+        if (decoded?.exp && decoded.exp * 1000 < Date.now()) logout();
+      } catch {
         logout();
       }
     }

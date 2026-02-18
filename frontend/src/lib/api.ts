@@ -1,6 +1,15 @@
+import axios from "axios";
+
 // ─── API Configuration ───────────────────────────────────────────────────────
-// Change BASE_URL to point at your real backend when ready
-export const BASE_URL = "https://api.example.com/v1";
+// Backend mounts routes under `/api` (see `backend/src/app.js`)
+// Override in `frontend/.env` with: VITE_API_BASE_URL=http://localhost:3000/api
+export const BASE_URL =
+  (import.meta as any).env?.VITE_API_BASE_URL ?? "http://localhost:3000/api";
+
+const http = axios.create({
+  baseURL: BASE_URL,
+  headers: { "Content-Type": "application/json" },
+});
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 export type UserRole = "user" | "admin" | "superadmin";
@@ -13,6 +22,33 @@ export interface User {
   avatar?: string;
   status: "active" | "suspended";
   joinedAt: string;
+}
+
+type BackendSuccess<T> = { success: true; message: string; data: T };
+type BackendError = { success: false; message: string; details?: unknown };
+
+function normalizeRole(role: unknown): UserRole {
+  const raw = String(role ?? "").toLowerCase();
+  if (raw === "admin") return "admin";
+  if (raw === "superadmin") return "superadmin";
+  return "user";
+}
+
+function mapUser(raw: any): User {
+  return {
+    id: String(raw?._id ?? raw?.id ?? ""),
+    name: String(raw?.name ?? ""),
+    email: String(raw?.email ?? ""),
+    role: normalizeRole(raw?.role),
+    status: raw?.status === "suspended" ? "suspended" : "active",
+    joinedAt: String(raw?.createdAt ?? raw?.joinedAt ?? new Date().toISOString()),
+    avatar: raw?.avatar ? String(raw.avatar) : undefined,
+  };
+}
+
+function toMessage(err: any): string {
+  const fromAxios = err?.response?.data as BackendError | undefined;
+  return fromAxios?.message || err?.message || "Request failed";
 }
 
 export interface Property {
@@ -141,18 +177,28 @@ const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 export const api = {
   // Auth
   login: async (email: string, _password: string): Promise<{ token: string; user: User }> => {
-    await delay(900);
-    const user = mockUsers.find((u) => u.email === email);
-    if (!user) throw new Error("Invalid email or password.");
-    // Generate a fake JWT-like token encoding role
-    const fakePayload = btoa(JSON.stringify({ sub: user.id, role: user.role, name: user.name, email: user.email, exp: Date.now() + 86400000 }));
-    return { token: `header.${fakePayload}.signature`, user };
+    try {
+      const res = await http.post<BackendSuccess<{ token: string; user: any }>>(
+        "/auth/login",
+        { email, password: _password },
+      );
+      const { token, user } = res.data.data;
+      return { token, user: mapUser(user) };
+    } catch (err: any) {
+      throw new Error(toMessage(err));
+    }
   },
 
   register: async (name: string, email: string, _password: string): Promise<{ message: string }> => {
-    await delay(900);
-    if (mockUsers.find((u) => u.email === email)) throw new Error("Email already registered.");
-    return { message: "Registration successful! Please log in." };
+    try {
+      const res = await http.post<BackendSuccess<{ token: string; user: any }>>(
+        "/auth/register",
+        { name, email, password: _password },
+      );
+      return { message: res.data.message };
+    } catch (err: any) {
+      throw new Error(toMessage(err));
+    }
   },
 
   // Properties
