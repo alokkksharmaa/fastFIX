@@ -47,7 +47,13 @@ function mapUser(raw: any): User {
 }
 
 function toMessage(err: any): string {
+  const status = err?.response?.status as number | undefined;
   const fromAxios = err?.response?.data as BackendError | undefined;
+
+  if (status === 429) {
+    return "Too many attempts. Please wait a moment and try again.";
+  }
+
   return fromAxios?.message || err?.message || "Request failed";
 }
 
