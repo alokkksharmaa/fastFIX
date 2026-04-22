@@ -2,7 +2,7 @@
 Real Estate API
 # Property Listing System – Production-Grade Backend
 
-A secure, scalable, role-based backend system for managing property listings.  
+##A secure, scalable, role-based backend system for managing property listings.  
 Built with **Node.js, Express, MongoDB**, and protected using **JWT Authentication** with **Role-Based Access Control (RBAC)**.
 
 This project is designed to be like a real-world production backend—clean architecture, predictable APIs, and strict access control.
@@ -22,7 +22,7 @@ All protected routes are secured via JWT, and sensitive operations are restricte
 
 ##  Objectives
 
-- Build a **secure and scalable** property management backend.
+- Build a **secure && scalable** property management backend.
 - Implement **full CRUD** for properties.
 - Enforce **JWT-based authentication** for all protected routes.
 - Apply **role-based guards** for admin-only operations.
@@ -79,14 +79,12 @@ All protected routes are secured via JWT, and sensitive operations are restricte
 1. `POST /auth/register` – Register new user  
 2. `POST /auth/login` – Login and receive JWT  
 3. `GET /auth/profile` – Get current user profile  
-
 ### Property APIs
 4. `POST /property` – Create property (User/Admin)  
 5. `GET /property` – List all properties  
 6. `GET /property/:id` – Get single property  
 7. `PUT /property/:id` – Update property (Owner/Admin)  
 8. `DELETE /property/:id` – Delete property (Owner/Admin)  
-
 ### Admin APIs
 9. `GET /admin/users` – List all users (Admin)  
 10. `PUT /admin/user/:id/role` – Change user role (Admin)  
