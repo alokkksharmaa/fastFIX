@@ -1,112 +1,98 @@
-# jwt-real-estate-api
-Real Estate API
-# Property Listing System – Production-Grade Backend
+# FixFast Services 🛠️
 
-##A secure, scalable, role-based backend system for managing property listings.  
-Built with **Node.js, Express, MongoDB**, and protected using **JWT Authentication** with **Role-Based Access Control (RBAC)**.
+FixFast Services is a premium, high-conversion home appliance repair platform built for the Delhi NCR region. It offers a seamless, modern web experience for booking repair services for ACs, Refrigerators, Washing Machines, and Microwaves. 
 
-This project is designed to be like a real-world production backend—clean architecture, predictable APIs, and strict access control.
+Designed with a focus on trust, SEO, and premium SaaS aesthetics, this frontend application ensures a fast, reliable, and user-friendly experience.
 
 ---
 
-## Overview
+## ✨ Key Features
 
-The Property Listing System allows:
-
-- Users to register, authenticate, browse listings, and manage their own properties.
-- Admins to control master data, moderate properties, manage users, access reports, and configure system-wide settings.
-
-All protected routes are secured via JWT, and sensitive operations are restricted to admins using role middleware.
-
----
-
-##  Objectives
-
-- Build a **secure && scalable** property management backend.
-- Implement **full CRUD** for properties.
-- Enforce **JWT-based authentication** for all protected routes.
-- Apply **role-based guards** for admin-only operations.
-- Maintain **clean separation of concerns** across modules.
-- Provide **consistent API contracts** for frontend integration.
-- Follow industry standards for **validation, error handling, and security**.
+- **Modern UI/UX:** Built with a premium SaaS aesthetic, featuring glassmorphism, smooth animations, and a polished design system.
+- **Service Specialization:** Dedicated, SEO-optimized pages for AC, Refrigerator, Washing Machine, and Microwave repairs.
+- **Trust & Credibility:** Integrated customer testimonials, Google Business credibility section, and comprehensive FAQs.
+- **SEO Optimized:** Implements JSON-LD schema, dynamic meta tags, and clean URL routing using `react-helmet-async` for maximum search visibility.
+- **Fully Responsive:** Flawless experience across mobile, tablet, and desktop devices.
+- **Theme Support:** Built-in dark and light mode capabilities.
 
 ---
 
-## User Roles
+## 💻 Tech Stack
 
-| Role  | Permissions                                                                 |
-|-------|------------------------------------------------------------------------------|
-| Admin | Manage users, approve/reject properties, access reports, update settings     |
-| User  | Register, login, create/edit own properties, browse listings                  |
+This project is built using modern web development standards:
 
----
-
-## System Architecture
-
-- **Backend:** Node.js + Express  
-- **Database:** MongoDB  
-- **Authentication:** JWT (Access Token)  
-- **Security:**
-  - Password hashing with `bcrypt`
-  - JWT verification middleware
-  - Role-based route guards
-
-### High-Level Flow
-
-1. User registers → password hashed → stored in DB  
-2. User logs in → JWT generated  
-3. Token stored on frontend (cookie / localStorage)  
-4. Each request sends: `Authorization: Bearer <token>`  
-5. Middleware verifies token & role  
-6. Access granted or denied  
+- **Framework:** [React 18](https://react.dev/) + [Vite](https://vitejs.dev/)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **UI Components:** [Shadcn UI](https://ui.shadcn.com/) & [Radix UI](https://www.radix-ui.com/)
+- **Routing:** [React Router DOM v6](https://reactrouter.com/)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **State & Data Fetching:** [TanStack Query](https://tanstack.com/query/latest)
 
 ---
 
-## Core Modules / Collections
+## 🚀 Getting Started
 
-1. **Users** – Authentication & roles  
-2. **Property Listings** – Main business entity  
-3. **Reports** – System analytics & moderation data  
-4. **Settings** – Application-wide configuration  
+Follow these steps to run the application locally.
+
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v18 or higher recommended)
+- npm or yarn
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/alokkksharmaa/fastFIX.git
+   cd fastFIX/frontend
+   ```
+   *(Note: Adjust the folder name if cloned into a different directory)*
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+
+4. **Build for production:**
+   ```bash
+   npm run build
+   ```
+   *The built files will be available in the `dist` directory.*
 
 ---
 
-## 🔌 API Design
+## 📁 Project Structure
 
-**Base URL:** `/api`
-
-### Auth APIs
-1. `POST /auth/register` – Register new user  
-2. `POST /auth/login` – Login and receive JWT  
-3. `GET /auth/profile` – Get current user profile  
-### Property APIs
-4. `POST /property` – Create property (User/Admin)  
-5. `GET /property` – List all properties  
-6. `GET /property/:id` – Get single property  
-7. `PUT /property/:id` – Update property (Owner/Admin)  
-8. `DELETE /property/:id` – Delete property (Owner/Admin)  
-### Admin APIs
-9. `GET /admin/users` – List all users (Admin)  
-10. `PUT /admin/user/:id/role` – Change user role (Admin)  
-11. `PUT /admin/property/:id/approve` – Approve property (Admin)  
-
-### Reports & Settings
-12. `GET /reports/summary` – System stats (Admin)  
-13. `POST /reports/property/:id` – Report a property (User)  
-14. `GET /settings` – Fetch system settings  
-15. `PUT /settings` – Update system settings (Admin)  
+```text
+frontend/
+├── src/
+│   ├── assets/       # Static images and branding assets
+│   ├── components/   # Reusable UI components (Shadcn, layouts, SEO)
+│   ├── data/         # Content configurations (Services, Blog data)
+│   ├── pages/        # Route components (Home, Services, Contact, etc.)
+│   ├── App.tsx       # Main application routing and providers
+│   ├── main.tsx      # React DOM entry point
+│   └── index.css     # Global styles and Tailwind directives
+├── public/           # Public static assets
+├── package.json      # Dependencies and scripts
+├── tailwind.config.js# Tailwind theme and plugin configuration
+└── vite.config.ts    # Vite bundler configuration
+```
 
 ---
 
-## Data Models (Simplified)
+## 📞 Contact & Support
 
-### User
-```json
-{
-  "_id": "ObjectId",
-  "name": "string",
-  "email": "string",
-  "password": "hashed",
-  "role": "admin | user",
-  "createdAt": "date"
-}
+For service inquiries or support:
+- **Phone:** +91-8235445601
+- **Address:** B-12, Connaught Place, New Delhi 110001
+- **Socials:** [Facebook](https://www.facebook.com/aloksharma1097) | [Instagram](https://www.instagram.com/apnaudyog1/) | [YouTube](https://youtube.com/@alokk_sharma?si=QfOgtdr1r8gU3HfC)
+
+---
+
+*Note: This repository was recently restructured to focus entirely on a modern frontend architecture for FixFast Services.*
