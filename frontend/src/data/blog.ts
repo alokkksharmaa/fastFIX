@@ -5,6 +5,7 @@ export interface BlogPost {
   date: string;
   readTime: string;
   category: string;
+  image: string;
   content: { heading?: string; type: "h2" | "h3" | "p" | "ul"; text?: string; items?: string[] }[];
   related: { slug: string; title: string }[];
 }
@@ -18,6 +19,7 @@ export const posts: BlogPost[] = [
     date: "2025-03-12",
     readTime: "6 min read",
     category: "AC Care",
+    image: "/AC care.jfif",
     content: [
       { type: "p", text: "Delhi summers can push your air conditioner to its limits. Regular care keeps cooling strong, electricity bills low and breakdowns rare. Here is a homeowner-friendly guide to AC maintenance you can follow without any tools." },
       { type: "h2", text: "Why AC maintenance matters" },
@@ -51,6 +53,7 @@ export const posts: BlogPost[] = [
     date: "2025-02-20",
     readTime: "7 min read",
     category: "Appliance Tips",
+    image: "/Washing machine.jfif",
     content: [
       { type: "p", text: "Your washing machine works hard every week. When something goes wrong, a quick diagnosis can save time and money. Here are the most common issues we see during washing machine repair in Delhi homes." },
       { type: "h2", text: "1. The machine will not start" },
@@ -78,6 +81,7 @@ export const posts: BlogPost[] = [
     date: "2025-01-30",
     readTime: "5 min read",
     category: "Refrigerator Care",
+    image: "/Refrigerator repair.jfif",
     content: [
       { type: "p", text: "Your fridge runs 24x7 — and small problems often turn into big repair bills if ignored. Here are the warning signs that mean it is time to book a refrigerator repair service." },
       { type: "h2", text: "1. Food is spoiling faster than usual" },

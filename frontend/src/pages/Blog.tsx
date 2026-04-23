@@ -46,14 +46,9 @@ const Blog = () => (
             className="group glass-card rounded-[2.5rem] overflow-hidden hover:-translate-y-2 transition-all duration-500 hover:shadow-glow hover:border-primary/30 flex flex-col animate-fade-up"
             style={{ animationDelay: `${(i % 3) * 0.1 + 0.3}s` }}
           >
-            <Link to={`/blog/${post.slug}`} className={`relative aspect-[16/10] bg-gradient-to-br ${gradients[i % gradients.length]} flex items-center justify-center overflow-hidden`}>
-              {/* Overlay pattern */}
-              <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/diagonal-stripes.png')]" />
-              
-              <span className="relative z-10 font-display text-7xl font-bold text-white/40 group-hover:scale-110 group-hover:text-white/60 transition-transform duration-500">
-                {post.category.charAt(0)}
-              </span>
-              
+            <Link to={`/blog/${post.slug}`} className="relative aspect-[16/10] flex items-center justify-center overflow-hidden">
+              <img src={post.image} alt={post.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent pointer-events-none" />
               <span className="absolute top-5 left-5 z-20 inline-flex items-center rounded-full glass border-border/20 px-4 py-1.5 text-xs font-bold text-white shadow-sm">
                 {post.category}
               </span>

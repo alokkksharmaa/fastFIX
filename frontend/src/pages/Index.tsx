@@ -351,7 +351,7 @@ const Index = () => {
                   { step: "02", title: "Real-time tracking", desc: "Know exactly when your certified technician will arrive at your doorstep." },
                   { step: "03", title: "Transparent repair", desc: "Approve the upfront quote before any work begins. Pay only when satisfied." },
                 ].map((s, i) => (
-                  <div key={s.step} className="flex gap-6">
+                  <div key={i} className="flex gap-6">
                     <div className="h-14 w-14 shrink-0 rounded-2xl bg-background shadow-sm border border-border/50 flex items-center justify-center font-display font-bold text-xl text-primary">
                       {s.step}
                     </div>
