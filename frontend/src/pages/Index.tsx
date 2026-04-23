@@ -1,22 +1,25 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, ShieldCheck, Clock, IndianRupee, Wrench, CheckCircle2, Sparkles, Star, Users } from "lucide-react";
+import { ArrowRight, ShieldCheck, Clock, IndianRupee, Wrench, CheckCircle2, Sparkles, Star, Users, MapPin, Facebook, Instagram, Youtube, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import SEO from "@/components/SEO";
 import { services } from "@/data/services";
 import heroImg from "@/assets/hero-technician.jpg";
 
-const benefits = [
-  { icon: Clock, title: "Same-Day Service", desc: "Book today and our technician reaches your home within hours across Delhi NCR." },
-  { icon: IndianRupee, title: "Affordable Pricing", desc: "Transparent rates with no hidden charges. Pay only after the repair is complete." },
-  { icon: ShieldCheck, title: "30-Day Warranty", desc: "Every repair is backed by a service warranty and genuine spare parts." },
-  { icon: Wrench, title: "Expert Technicians", desc: "10+ years of experience with all major brands of home appliances." },
+const testimonials = [
+  { name: "Rahul Sharma", location: "Delhi", rating: 5, text: "Excellent service. My washing machine was repaired within one hour. The technician was polite and professional. Highly recommended." },
+  { name: "Priya Verma", location: "Delhi", rating: 5, text: "Very quick response and affordable pricing. My refrigerator is working perfectly now." },
+  { name: "Amit Kumar", location: "Delhi", rating: 4, text: "Good service and friendly staff. The AC cooling issue was fixed the same day." },
+  { name: "Neha Singh", location: "Delhi", rating: 5, text: "Professional technicians and reliable service. I will definitely use this service again." },
+  { name: "Rakesh Gupta", location: "Delhi", rating: 5, text: "Fast and trustworthy service. Booking was simple and the technician arrived on time." },
+  { name: "Sunita Patel", location: "Delhi", rating: 4, text: "Affordable repair and good customer support. Very satisfied with the service." },
 ];
 
-const stats = [
-  { value: "50K+", label: "Happy Customers" },
-  { value: "10+", label: "Years Experience" },
-  { value: "40+", label: "Certified Pros" },
-  { value: "4.9", label: "Average Rating" },
+const faqs = [
+  { q: "How quickly can you repair my appliance?", a: "Most repairs are completed within the same day depending on the issue." },
+  { q: "Do you provide warranty on repairs?", a: "Yes, we provide a service warranty on most repairs." },
+  { q: "What areas do you serve?", a: "We provide appliance repair services across Delhi." },
+  { q: "How can I book a service?", a: "You can book a service using the contact form or by calling our support number." },
 ];
 
 const Index = () => {
@@ -44,7 +47,7 @@ const Index = () => {
         title="Home Appliance Repair in Delhi | FixFast Services"
         description="Trusted home appliance repair in Delhi for AC, refrigerator, washing machine & microwave. Same-day service, affordable pricing, expert technicians."
         path="/"
-        keywords="home appliance repair in Delhi, AC repair Delhi, refrigerator repair, washing machine repair, microwave repair"
+        keywords="home appliance repair in Delhi, AC repair in Delhi, washing machine repair, refrigerator repair service, affordable appliance repair, same day repair, appliance repair near me"
         jsonLd={jsonLd}
       />
 
@@ -54,7 +57,6 @@ const Index = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/20 via-background to-background" aria-hidden="true" />
         <div className="absolute inset-y-0 left-0 w-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] dark:opacity-[0.05]" aria-hidden="true" />
         
-        {/* Animated glowing orbs */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/30 rounded-full blur-[128px] animate-blob" aria-hidden="true" />
         <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[128px] animate-blob animation-delay-2000" aria-hidden="true" />
 
@@ -106,7 +108,6 @@ const Index = () => {
               alt="Technician repairing"
               className="relative z-10 w-full h-[500px] object-cover rounded-[2.5rem] shadow-elegant border border-border/50"
             />
-            {/* Floating Glass Cards */}
             <div className="absolute top-10 -left-8 z-20 glass-card p-4 rounded-2xl flex items-center gap-4 animate-fade-up" style={{ animationDelay: '0.4s' }}>
               <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                 <Clock className="h-6 w-6" />
@@ -129,22 +130,41 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Stats Strip */}
-      <section className="relative z-20 -mt-12">
+      {/* Trust Badge / Social Proof Header */}
+      <section className="relative z-20 -mt-12 mb-12">
         <div className="container">
-          <div className="glass-card rounded-[2rem] p-8 md:p-12 grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-border/50">
-            {stats.map((s, i) => (
-              <div key={s.label} className={`text-center ${i % 2 === 0 ? 'border-none md:border-solid' : 'border-none'} ${i === 0 ? 'border-none' : ''}`}>
-                <div className="font-display text-4xl md:text-5xl font-bold text-gradient mb-2">{s.value}</div>
-                <div className="text-sm font-medium text-muted-foreground tracking-wide uppercase">{s.label}</div>
+          <div className="glass-card rounded-[2rem] p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="flex items-center gap-4">
+              <div className="h-14 w-14 rounded-2xl bg-gradient-cta text-white flex items-center justify-center shadow-elegant shrink-0">
+                <Users className="h-7 w-7" />
               </div>
-            ))}
+              <div>
+                <div className="font-display text-2xl md:text-3xl font-bold text-foreground">Trusted by 50,000+ homes</div>
+                <div className="text-sm font-medium text-muted-foreground flex items-center gap-1.5 mt-1">
+                  <MapPin className="h-4 w-4" /> Serving customers across Delhi
+                </div>
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-2 md:flex gap-4 md:gap-8">
+              {[
+                "Certified technicians",
+                "Same-day service",
+                "Affordable pricing",
+                "24/7 customer support"
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-2">
+                  <CheckCircle2 className="h-5 w-5 text-primary shrink-0" />
+                  <span className="text-sm font-semibold text-foreground/80">{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section className="py-24 md:py-32 relative">
+      <section className="py-24 relative">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-6">Premium care for every device</h2>
@@ -154,7 +174,7 @@ const Index = () => {
           </div>
           
           <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
-            {services.map((s, i) => (
+            {services.map((s) => (
               <Link
                 key={s.slug}
                 to={s.href}
@@ -172,6 +192,100 @@ const Index = () => {
                   </div>
                 </div>
               </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Organic Traffic Section (Why Customers Trust Us) */}
+      <section className="py-24 bg-gradient-soft border-y border-border/50">
+        <div className="container">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-6">Why Customers Trust FixFast Services</h2>
+            <p className="text-xl text-muted-foreground leading-relaxed">
+              We deliver more than just repairs; we deliver peace of mind.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { title: "Experienced technicians", desc: "Our team consists of highly trained experts with years of hands-on experience.", icon: Wrench },
+              { title: "Fast response time", desc: "We understand urgency. Expect a technician at your door within hours.", icon: Clock },
+              { title: "Transparent pricing", desc: "No hidden fees. You get a clear, upfront quote before any work begins.", icon: IndianRupee },
+              { title: "Genuine spare parts", desc: "We only use original, manufacturer-approved parts for all replacements.", icon: ShieldCheck },
+              { title: "Reliable customer support", desc: "Our support team is available around the clock to assist you.", icon: MessageCircle },
+            ].map((feature, i) => (
+              <div key={i} className="glass-card p-8 rounded-[2rem] flex flex-col items-center text-center">
+                <div className="h-14 w-14 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-6">
+                  <feature.icon className="h-7 w-7" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-3">{feature.title}</h3>
+                <p className="text-muted-foreground">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials & Google Business Section */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[100px]" aria-hidden />
+        <div className="container relative z-10">
+          
+          <div className="flex flex-col lg:flex-row gap-12 items-end justify-between mb-16">
+            <div className="max-w-2xl">
+              <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-6">Real feedback from real customers</h2>
+              
+              <div className="flex items-center gap-6 mt-8">
+                <div>
+                  <div className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-2">Average Rating</div>
+                  <div className="flex items-end gap-3">
+                    <span className="font-display text-5xl font-bold text-foreground">4.8</span>
+                    <span className="text-muted-foreground mb-1 pb-1">out of 5 stars</span>
+                  </div>
+                </div>
+                <div className="w-px h-16 bg-border/50" />
+                <div>
+                  <div className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-2">Customer Satisfaction</div>
+                  <div className="font-display text-3xl font-bold text-primary">98% <span className="text-lg font-medium text-muted-foreground">positive feedback</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div className="glass-card p-6 rounded-3xl flex items-center gap-6 shrink-0 shadow-elegant">
+              <div className="h-16 w-16 rounded-full bg-white flex items-center justify-center shadow-sm">
+                <svg viewBox="0 0 24 24" className="w-8 h-8" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+              </div>
+              <div>
+                <div className="flex items-center gap-1 text-amber-500 mb-1">
+                  {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 fill-current" />)}
+                </div>
+                <div className="font-semibold text-foreground">4.8 / 5 rating</div>
+                <div className="text-sm text-muted-foreground">Based on 1,200+ reviews</div>
+                <Button variant="link" className="px-0 h-auto text-primary font-semibold mt-1">View Google Reviews <ArrowRight className="ml-1 h-3 w-3" /></Button>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {testimonials.map((t, i) => (
+              <div key={i} className="glass-card p-8 rounded-[2rem] flex flex-col hover:-translate-y-1 transition-transform duration-300">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="h-12 w-12 rounded-full bg-gradient-cta flex items-center justify-center text-white font-bold shadow-sm">
+                    {t.name.charAt(0)}
+                  </div>
+                  <div>
+                    <div className="font-bold text-foreground">{t.name}</div>
+                    <div className="text-xs text-muted-foreground">{t.location}</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-1 text-amber-500 mb-4">
+                  {[...Array(5)].map((_, idx) => (
+                    <Star key={idx} className={`h-4 w-4 ${idx < t.rating ? "fill-current" : "text-muted stroke-muted-foreground"}`} />
+                  ))}
+                </div>
+                <p className="text-muted-foreground leading-relaxed italic">"{t.text}"</p>
+              </div>
             ))}
           </div>
         </div>
@@ -218,6 +332,55 @@ const Index = () => {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="py-24">
+        <div className="container max-w-4xl">
+          <div className="text-center mb-16">
+            <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4">Frequently Asked Questions</h2>
+            <p className="text-xl text-muted-foreground">Everything you need to know about our repair services.</p>
+          </div>
+          
+          <div className="glass-card rounded-[2rem] p-6 md:p-10">
+            <Accordion type="single" collapsible className="w-full">
+              {faqs.map((faq, i) => (
+                <AccordionItem key={i} value={`item-${i}`} className="border-border/50 px-2">
+                  <AccordionTrigger className="text-lg font-semibold hover:text-primary transition-colors text-left py-6">{faq.q}</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground text-base leading-relaxed pb-6">
+                    {faq.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </div>
+      </section>
+
+      {/* Social Media Plugins */}
+      <section className="py-16 bg-gradient-soft border-y border-border/50">
+        <div className="container text-center">
+          <h2 className="font-display text-2xl font-bold text-foreground mb-3">Connect with us</h2>
+          <p className="text-muted-foreground mb-8">Follow us on social media for updates and service tips.</p>
+          
+          <div className="flex items-center justify-center gap-6">
+            {[
+              { icon: Facebook, label: "Facebook" },
+              { icon: Instagram, label: "Instagram" },
+              { icon: MessageCircle, label: "WhatsApp" },
+              { icon: Youtube, label: "YouTube" },
+            ].map((social) => (
+              <a 
+                key={social.label}
+                href="#" 
+                className="h-14 w-14 rounded-2xl glass-card flex items-center justify-center text-foreground hover:bg-primary hover:text-white hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-elegant"
+                aria-label={social.label}
+              >
+                <social.icon className="h-6 w-6" />
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/5" />
@@ -234,7 +397,7 @@ const Index = () => {
                 Join thousands of Delhi residents who trust FixFast for their premium appliance repair needs.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button asChild size="lg" className="h-14 px-10 text-lg rounded-full bg-gradient-cta shadow-elegant">
+                <Button asChild size="lg" className="h-14 px-10 text-lg rounded-full bg-gradient-cta shadow-elegant hover:opacity-90 transition-opacity">
                   <Link to="/contact">Schedule a Visit</Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="h-14 px-10 text-lg rounded-full glass hover:bg-secondary/50">
