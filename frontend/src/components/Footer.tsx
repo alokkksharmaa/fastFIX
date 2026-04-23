@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Twitter, MapPin, Phone, Mail, Wrench } from "lucide-react";
+import { Facebook, Instagram, Youtube, MapPin, Phone, Mail, Wrench } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -17,20 +17,20 @@ const Footer = () => {
               Delhi's most trusted home appliance repair service. Fast, reliable, and affordable solutions for all your appliance problems.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="h-10 w-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" aria-label="Facebook">
+              <a href="https://www.facebook.com/aloksharma1097" target="_blank" rel="noreferrer" className="h-10 w-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary hover:text-white transition-colors shadow-sm" aria-label="Facebook">
                 <Facebook className="h-4 w-4" />
               </a>
-              <a href="#" className="h-10 w-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" aria-label="Instagram">
+              <a href="https://www.instagram.com/apnaudyog1/" target="_blank" rel="noreferrer" className="h-10 w-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary hover:text-white transition-colors shadow-sm" aria-label="Instagram">
                 <Instagram className="h-4 w-4" />
               </a>
-              <a href="#" className="h-10 w-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary hover:text-white transition-colors" aria-label="Twitter">
-                <Twitter className="h-4 w-4" />
+              <a href="https://youtube.com/@alokk_sharma?si=QfOgtdr1r8gU3HfC" target="_blank" rel="noreferrer" className="h-10 w-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary hover:text-white transition-colors shadow-sm" aria-label="YouTube">
+                <Youtube className="h-4 w-4" />
               </a>
             </div>
           </div>
 
           <div>
-            <h3 className="font-semibold text-lg mb-6">Services</h3>
+            <h3 className="font-semibold text-lg mb-6 text-background">Services</h3>
             <ul className="space-y-4 text-sm text-background/70">
               <li><Link to="/services/ac-repair-delhi" className="hover:text-primary transition-colors">AC Repair</Link></li>
               <li><Link to="/services/refrigerator-repair-delhi" className="hover:text-primary transition-colors">Refrigerator Repair</Link></li>
@@ -40,7 +40,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-semibold text-lg mb-6">Company</h3>
+            <h3 className="font-semibold text-lg mb-6 text-background">Company</h3>
             <ul className="space-y-4 text-sm text-background/70">
               <li><Link to="/about" className="hover:text-primary transition-colors">About Us</Link></li>
               <li><Link to="/blog" className="hover:text-primary transition-colors">Blog</Link></li>
@@ -50,7 +50,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-semibold text-lg mb-6">Contact Us</h3>
+            <h3 className="font-semibold text-lg mb-6 text-background">Contact Us</h3>
             <ul className="space-y-4 text-sm text-background/70">
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-primary shrink-0" />
@@ -58,11 +58,11 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-primary shrink-0" />
-                <a href="tel:+911140000000" className="hover:text-primary transition-colors">+91 11 4000 0000</a>
+                <a href="tel:+918235445601" className="hover:text-primary transition-colors">+91 8235445601</a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-primary shrink-0" />
-                <a href="mailto:hello@fixfastservices.in" className="hover:text-primary transition-colors">hello@fixfastservices.in</a>
+                <a href="mailto:aloksharma1097@gmail.com" className="hover:text-primary transition-colors">aloksharma1097@gmail.com</a>
               </li>
             </ul>
           </div>
