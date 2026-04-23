@@ -63,8 +63,8 @@ const Header = () => {
 
         <div className="hidden md:flex items-center gap-4">
           <ThemeToggle />
-          <a href="tel:+911140000000" className="hidden lg:flex items-center gap-1.5 text-sm font-medium text-foreground/70 hover:text-primary transition-colors">
-            <Phone className="h-4 w-4" /> +91 11 4000 0000
+          <a href="tel:+918235445601" className="hidden lg:flex items-center gap-1.5 text-sm font-medium text-foreground/70 hover:text-primary transition-colors">
+            <Phone className="h-4 w-4" /> +91 8235445601
           </a>
           <Button asChild variant="default" size="sm" className="rounded-full px-5 shadow-elegant bg-gradient-cta hover:opacity-90 transition-opacity">
             <Link to="/contact">Book Service</Link>

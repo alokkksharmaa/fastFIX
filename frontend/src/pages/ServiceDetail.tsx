@@ -75,7 +75,7 @@ const ServiceDetail = ({ service, seoTitle, seoDescription, keywords, intro, det
               <div className="mt-5 space-y-2.5">
                 <Button asChild variant="cta" size="lg" className="w-full"><Link to="/contact">Request callback</Link></Button>
                 <Button asChild variant="outline" size="lg" className="w-full">
-                  <a href="tel:+911140000000"><Phone className="h-4 w-4" /> Call us now</a>
+                  <a href="tel:+918235445601"><Phone className="h-4 w-4" /> Call us now</a>
                 </Button>
               </div>
               <div className="mt-6 pt-6 border-t border-border space-y-3 text-sm">
@@ -96,7 +96,7 @@ const ServiceDetail = ({ service, seoTitle, seoDescription, keywords, intro, det
           <div className="mt-7 flex flex-wrap gap-3 justify-center">
             <Button asChild variant="cta" size="lg"><Link to="/contact">Request a Callback</Link></Button>
             <Button asChild variant="hero" size="lg">
-              <a href="tel:+911140000000"><Phone className="h-4 w-4" /> +91 11 4000 0000</a>
+              <a href="tel:+918235445601"><Phone className="h-4 w-4" /> +91 8235445601</a>
             </Button>
           </div>
         </div>
