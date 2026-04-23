@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { Menu, X, Wrench, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -26,21 +27,21 @@ const Header = () => {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300",
+        "sticky top-0 z-50 w-full transition-all duration-400",
         scrolled
-          ? "border-b border-border/60 bg-background/80 backdrop-blur-xl shadow-card"
-          : "bg-background/0 border-b border-transparent"
+          ? "border-b border-border/50 bg-background/60 backdrop-blur-xl shadow-sm"
+          : "bg-transparent border-b border-transparent"
       )}
     >
-      <div className="container flex h-16 md:h-18 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2.5 font-display font-bold text-lg" aria-label="FixFast Services Home">
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-hero text-primary-foreground shadow-elegant">
+      <div className="container flex h-16 md:h-20 items-center justify-between">
+        <Link to="/" className="flex items-center gap-2.5 font-display font-bold text-xl" aria-label="FixFast Services Home">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-hero text-white shadow-elegant">
             <Wrench className="h-5 w-5" />
           </span>
-          <span className="tracking-tight">FixFast<span className="text-primary">.</span></span>
+          <span className="tracking-tight text-foreground">FixFast<span className="text-primary">.</span></span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-1 rounded-full border border-border/60 bg-background/60 backdrop-blur p-1" aria-label="Primary">
+        <nav className="hidden md:flex items-center gap-1 rounded-full border border-border/40 bg-background/40 backdrop-blur-md p-1.5 shadow-sm" aria-label="Primary">
           {navLinks.map((l) => (
             <NavLink
               key={l.to}
@@ -48,10 +49,10 @@ const Header = () => {
               end={l.to === "/"}
               className={({ isActive }) =>
                 cn(
-                  "rounded-full px-4 py-1.5 text-sm font-medium transition-all",
+                  "rounded-full px-5 py-2 text-sm font-medium transition-all duration-300",
                   isActive
                     ? "bg-foreground text-background shadow-sm"
-                    : "text-foreground/70 hover:text-foreground hover:bg-secondary"
+                    : "text-foreground/70 hover:text-foreground hover:bg-secondary/50"
                 )
               }
             >
@@ -60,27 +61,31 @@ const Header = () => {
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden md:flex items-center gap-4">
+          <ThemeToggle />
           <a href="tel:+911140000000" className="hidden lg:flex items-center gap-1.5 text-sm font-medium text-foreground/70 hover:text-primary transition-colors">
             <Phone className="h-4 w-4" /> +91 11 4000 0000
           </a>
-          <Button asChild variant="cta" size="sm">
+          <Button asChild variant="default" size="sm" className="rounded-full px-5 shadow-elegant bg-gradient-cta hover:opacity-90 transition-opacity">
             <Link to="/contact">Book Service</Link>
           </Button>
         </div>
 
-        <button
-          className="md:hidden p-2 rounded-lg hover:bg-secondary"
-          aria-label="Toggle menu"
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        <div className="flex md:hidden items-center gap-2">
+          <ThemeToggle />
+          <button
+            className="p-2 rounded-xl hover:bg-secondary transition-colors"
+            aria-label="Toggle menu"
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
       {open && (
-        <nav className="md:hidden border-t border-border bg-background/95 backdrop-blur-xl animate-fade-in" aria-label="Mobile">
-          <div className="container flex flex-col py-4 gap-1">
+        <nav className="md:hidden border-t border-border/50 bg-background/80 backdrop-blur-xl animate-in slide-in-from-top-2" aria-label="Mobile">
+          <div className="container flex flex-col py-6 gap-2">
             {navLinks.map((l) => (
               <NavLink
                 key={l.to}
@@ -89,16 +94,16 @@ const Header = () => {
                 onClick={() => setOpen(false)}
                 className={({ isActive }) =>
                   cn(
-                    "rounded-xl px-4 py-3 text-base font-medium",
-                    isActive ? "bg-secondary text-primary" : "text-foreground/80"
+                    "rounded-xl px-5 py-3.5 text-base font-medium transition-all",
+                    isActive ? "bg-primary/10 text-primary font-semibold" : "text-foreground/80 hover:bg-secondary"
                   )
                 }
               >
                 {l.label}
               </NavLink>
             ))}
-            <Button asChild variant="cta" className="mt-3">
-              <Link to="/contact" onClick={() => setOpen(false)}>Book Service</Link>
+            <Button asChild variant="default" className="mt-4 rounded-xl h-12 shadow-elegant bg-gradient-cta">
+              <Link to="/contact" onClick={() => setOpen(false)}>Book Service Now</Link>
             </Button>
           </div>
         </nav>

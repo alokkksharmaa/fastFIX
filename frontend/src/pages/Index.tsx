@@ -13,10 +13,10 @@ const benefits = [
 ];
 
 const stats = [
-  { value: "50K+", label: "Happy customers" },
-  { value: "10+", label: "Years experience" },
-  { value: "40+", label: "Certified pros" },
-  { value: "4.9", label: "Average rating" },
+  { value: "50K+", label: "Happy Customers" },
+  { value: "10+", label: "Years Experience" },
+  { value: "40+", label: "Certified Pros" },
+  { value: "4.9", label: "Average Rating" },
 ];
 
 const Index = () => {
@@ -48,130 +48,128 @@ const Index = () => {
         jsonLd={jsonLd}
       />
 
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-soft">
-        {/* Decorative blobs */}
-        <div className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full bg-primary/20 blur-3xl animate-blob" aria-hidden />
-        <div className="pointer-events-none absolute top-40 -left-32 h-80 w-80 rounded-full bg-accent/20 blur-3xl animate-blob" style={{ animationDelay: "4s" }} aria-hidden />
+      {/* Hero Section */}
+      <section className="relative overflow-hidden pt-24 pb-32 lg:pt-36 lg:pb-40">
+        <div className="absolute inset-0 bg-background" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/20 via-background to-background" aria-hidden="true" />
+        <div className="absolute inset-y-0 left-0 w-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] dark:opacity-[0.05]" aria-hidden="true" />
+        
+        {/* Animated glowing orbs */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/30 rounded-full blur-[128px] animate-blob" aria-hidden="true" />
+        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[128px] animate-blob animation-delay-2000" aria-hidden="true" />
 
-        <div className="container relative py-20 md:py-28 grid lg:grid-cols-2 gap-14 items-center">
-          <div className="animate-fade-up">
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3.5 py-1.5 text-xs font-semibold text-primary">
-              <Sparkles className="h-3.5 w-3.5" /> Serving Delhi NCR since 2014
-            </span>
-            <h1 className="mt-5 font-display text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight">
-              Home appliance repair,{" "}
-              <span className="text-gradient">done right.</span>
+        <div className="container relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+          <div className="max-w-2xl animate-fade-up">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border-primary/20 text-sm font-medium text-primary mb-6 shadow-sm">
+              <Sparkles className="h-4 w-4" /> <span>Premium Appliance Care in Delhi NCR</span>
+            </div>
+            <h1 className="font-display text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight text-foreground">
+              Smart repair for your <br />
+              <span className="text-gradient">modern home.</span>
             </h1>
-            <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
-              Same-day repair for air conditioners, refrigerators, washing
-              machines and microwaves across Delhi. Skilled technicians,
-              genuine parts, 30-day warranty.
+            <p className="mt-6 text-xl text-muted-foreground leading-relaxed">
+              Experience hassle-free, same-day repairs for your AC, refrigerator, washing machine, and microwave. Delivered by certified experts with a 30-day guarantee.
             </p>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <Button asChild variant="cta" size="lg">
-                <Link to="/contact">Book a Service <ArrowRight className="h-4 w-4" /></Link>
+            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+              <Button asChild size="lg" className="h-14 px-8 text-base rounded-full bg-gradient-cta shadow-elegant hover:opacity-90 transition-opacity">
+                <Link to="/contact">Book an Expert <ArrowRight className="ml-2 h-5 w-5" /></Link>
               </Button>
-              <Button asChild variant="outline" size="lg">
-                <Link to="/services">Explore Services</Link>
+              <Button asChild variant="outline" size="lg" className="h-14 px-8 text-base rounded-full glass border-border/50 hover:bg-secondary/50">
+                <Link to="/services">View Services</Link>
               </Button>
             </div>
-
-            <div className="mt-10 flex items-center gap-6 text-sm">
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="h-9 w-9 rounded-full border-2 border-background bg-gradient-hero shadow-sm" />
+            
+            <div className="mt-12 flex items-center gap-6 p-4 rounded-2xl glass-card inline-flex">
+              <div className="flex -space-x-3">
+                {[
+                  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces",
+                  "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&crop=faces",
+                  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=faces",
+                  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=faces"
+                ].map((src, i) => (
+                  <img key={i} src={src} alt="Customer" className="h-12 w-12 rounded-full border-2 border-background object-cover shadow-sm" />
                 ))}
               </div>
-              <div>
-                <div className="flex items-center gap-1 text-accent">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-current" />
-                  ))}
+              <div className="flex flex-col">
+                <div className="flex items-center gap-1 text-amber-500">
+                  {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
                 </div>
-                <p className="text-xs text-muted-foreground mt-0.5">
-                  <span className="font-semibold text-foreground">4.9/5</span> from 12,000+ Delhi customers
-                </p>
+                <span className="text-sm font-medium mt-1">Trusted by 50,000+ homes</span>
               </div>
             </div>
           </div>
 
-          <div className="relative animate-scale-in">
-            <div className="absolute -inset-4 rounded-[2rem] bg-gradient-hero opacity-20 blur-2xl" aria-hidden />
+          <div className="relative lg:h-[600px] flex items-center justify-center animate-scale-in">
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-[3rem] rotate-3 blur-sm"></div>
             <img
               src={heroImg}
-              alt="FixFast technician repairing a split AC in a Delhi home"
-              width={1280}
-              height={896}
-              loading="eager"
-              className="relative rounded-[2rem] shadow-elegant w-full h-auto object-cover"
+              alt="Technician repairing"
+              className="relative z-10 w-full h-[500px] object-cover rounded-[2.5rem] shadow-elegant border border-border/50"
             />
-            {/* Floating cards */}
-            <div className="absolute -bottom-6 -left-6 rounded-2xl bg-background shadow-elegant p-4 flex items-center gap-3 border border-border/60 hidden sm:flex">
-              <div className="h-10 w-10 rounded-full bg-primary/10 text-primary flex items-center justify-center">
-                <ShieldCheck className="h-5 w-5" />
+            {/* Floating Glass Cards */}
+            <div className="absolute top-10 -left-8 z-20 glass-card p-4 rounded-2xl flex items-center gap-4 animate-fade-up" style={{ animationDelay: '0.4s' }}>
+              <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                <Clock className="h-6 w-6" />
               </div>
               <div>
-                <div className="text-sm font-semibold">30-day warranty</div>
-                <div className="text-xs text-muted-foreground">On every repair</div>
+                <p className="font-bold text-foreground">Under 2 Hours</p>
+                <p className="text-xs text-muted-foreground">Response time</p>
               </div>
             </div>
-            <div className="absolute -top-6 -right-6 rounded-2xl bg-background shadow-elegant p-4 flex items-center gap-3 border border-border/60 hidden sm:flex">
-              <div className="h-10 w-10 rounded-full bg-accent/10 text-accent flex items-center justify-center">
-                <Clock className="h-5 w-5" />
+            <div className="absolute bottom-12 -right-8 z-20 glass-card p-4 rounded-2xl flex items-center gap-4 animate-fade-up" style={{ animationDelay: '0.6s' }}>
+              <div className="h-12 w-12 rounded-full bg-accent/10 flex items-center justify-center text-accent">
+                <ShieldCheck className="h-6 w-6" />
               </div>
               <div>
-                <div className="text-sm font-semibold">Same-day visit</div>
-                <div className="text-xs text-muted-foreground">Across Delhi NCR</div>
+                <p className="font-bold text-foreground">100% Guaranteed</p>
+                <p className="text-xs text-muted-foreground">30-day warranty</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats strip */}
-      <section className="border-y border-border/60 bg-background">
-        <div className="container py-10 grid grid-cols-2 md:grid-cols-4 gap-6">
-          {stats.map((s) => (
-            <div key={s.label} className="text-center">
-              <div className="font-display text-3xl md:text-4xl font-bold text-foreground">{s.value}</div>
-              <div className="mt-1 text-sm text-muted-foreground">{s.label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Services Overview */}
-      <section className="py-20 md:py-28">
+      {/* Stats Strip */}
+      <section className="relative z-20 -mt-12">
         <div className="container">
-          <div className="flex items-end justify-between flex-wrap gap-4 mb-12">
-            <div className="max-w-2xl">
-              <span className="text-sm font-semibold text-primary uppercase tracking-wider">Our Services</span>
-              <h2 className="mt-2 font-display text-3xl md:text-5xl font-bold tracking-tight">Expert care for every appliance</h2>
-              <p className="mt-4 text-lg text-muted-foreground">From quick fixes to complex repairs — one trusted partner for every appliance in your home.</p>
-            </div>
-            <Link to="/services" className="text-primary font-semibold hover:gap-2 inline-flex items-center gap-1 transition-all">
-              View all services <ArrowRight className="h-4 w-4" />
-            </Link>
+          <div className="glass-card rounded-[2rem] p-8 md:p-12 grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-border/50">
+            {stats.map((s, i) => (
+              <div key={s.label} className={`text-center ${i % 2 === 0 ? 'border-none md:border-solid' : 'border-none'} ${i === 0 ? 'border-none' : ''}`}>
+                <div className="font-display text-4xl md:text-5xl font-bold text-gradient mb-2">{s.value}</div>
+                <div className="text-sm font-medium text-muted-foreground tracking-wide uppercase">{s.label}</div>
+              </div>
+            ))}
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-24 md:py-32 relative">
+        <div className="container">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-6">Premium care for every device</h2>
+            <p className="text-xl text-muted-foreground leading-relaxed">
+              We specialize in fixing modern home appliances using advanced diagnostics and genuine manufacturer parts.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
             {services.map((s, i) => (
               <Link
                 key={s.slug}
                 to={s.href}
-                className="group relative rounded-2xl border border-border/60 bg-card p-7 shadow-card hover:shadow-elegant hover:-translate-y-1 hover:border-primary/30 transition-all duration-300"
-                style={{ animationDelay: `${i * 80}ms` }}
+                className="group glass-card p-8 rounded-[2rem] hover:-translate-y-2 transition-all duration-400 hover:shadow-glow hover:border-primary/30 relative overflow-hidden"
               >
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden />
-                <div className="relative">
-                  <div className="h-14 w-14 rounded-2xl bg-gradient-hero text-primary-foreground flex items-center justify-center mb-5 shadow-elegant group-hover:scale-110 transition-transform">
-                    <s.icon className="h-7 w-7" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative z-10">
+                  <div className="h-16 w-16 rounded-2xl bg-gradient-hero text-white flex items-center justify-center mb-8 shadow-elegant group-hover:scale-110 transition-transform duration-500">
+                    <s.icon className="h-8 w-8" />
                   </div>
-                  <h3 className="font-display font-semibold text-lg">{s.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground line-clamp-3">{s.short}</p>
-                  <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-primary group-hover:gap-2 transition-all">
-                    Learn more <ArrowRight className="h-3.5 w-3.5" />
-                  </span>
+                  <h3 className="text-2xl font-bold text-foreground mb-3">{s.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed mb-6 line-clamp-3">{s.short}</p>
+                  <div className="flex items-center text-primary font-medium group-hover:gap-2 transition-all">
+                    Explore Service <ArrowRight className="ml-2 h-4 w-4" />
+                  </div>
                 </div>
               </Link>
             ))}
@@ -179,65 +177,70 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Benefits */}
-      <section className="bg-gradient-soft py-20 md:py-28">
+      {/* Process Section */}
+      <section className="py-24 bg-secondary/30 border-y border-border/50">
         <div className="container">
-          <div className="text-center max-w-2xl mx-auto">
-            <span className="text-sm font-semibold text-primary uppercase tracking-wider">Why FixFast</span>
-            <h2 className="mt-2 font-display text-3xl md:text-5xl font-bold tracking-tight">Built on trust. Delivered with care.</h2>
-            <p className="mt-4 text-lg text-muted-foreground">Speed, transparency and quality — built into every service call.</p>
-          </div>
-          <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {benefits.map((b) => (
-              <div key={b.title} className="group rounded-2xl border border-border/60 bg-background p-7 shadow-card hover:shadow-elegant hover:-translate-y-1 transition-all">
-                <div className="h-12 w-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center mb-4 group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
-                  <b.icon className="h-6 w-6" />
-                </div>
-                <h3 className="font-display font-semibold text-lg">{b.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-6">A seamless experience from start to finish</h2>
+              <p className="text-xl text-muted-foreground leading-relaxed mb-10">
+                We've reimagined appliance repair to be as effortless as ordering a ride. No waiting, no hidden fees.
+              </p>
+              
+              <div className="space-y-8">
+                {[
+                  { step: "01", title: "Book in 60 seconds", desc: "Select your appliance and preferred time slot online or over the phone." },
+                  { step: "02", title: "Real-time tracking", desc: "Know exactly when your certified technician will arrive at your doorstep." },
+                  { step: "03", title: "Transparent repair", desc: "Approve the upfront quote before any work begins. Pay only when satisfied." },
+                ].map((s, i) => (
+                  <div key={s.step} className="flex gap-6">
+                    <div className="h-14 w-14 shrink-0 rounded-2xl bg-background shadow-sm border border-border/50 flex items-center justify-center font-display font-bold text-xl text-primary">
+                      {s.step}
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-foreground mb-2">{s.title}</h3>
+                      <p className="text-muted-foreground leading-relaxed">{s.desc}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+            
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-primary/20 rounded-[3rem] blur-2xl" />
+              <img 
+                src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2069&auto=format&fit=crop" 
+                alt="Modern appliance repair" 
+                className="relative w-full h-[600px] object-cover rounded-[2.5rem] shadow-elegant"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Process */}
-      <section className="container py-20 md:py-28">
-        <div className="text-center max-w-2xl mx-auto">
-          <span className="text-sm font-semibold text-primary uppercase tracking-wider">How it works</span>
-          <h2 className="mt-2 font-display text-3xl md:text-5xl font-bold tracking-tight">A repair, in three simple steps</h2>
-        </div>
-        <div className="mt-14 grid md:grid-cols-3 gap-6">
-          {[
-            { step: "01", title: "Book online or call", desc: "Tell us what's wrong in under 60 seconds." },
-            { step: "02", title: "Technician arrives", desc: "A certified pro reaches your doorstep — same day." },
-            { step: "03", title: "Fixed & guaranteed", desc: "Pay after the repair. Backed by a 30-day warranty." },
-          ].map((s, i) => (
-            <div key={s.step} className="relative rounded-2xl border border-border/60 bg-card p-8 shadow-card">
-              <div className="font-display text-5xl font-bold text-primary/15">{s.step}</div>
-              <h3 className="mt-3 font-display font-semibold text-xl">{s.title}</h3>
-              <p className="mt-2 text-muted-foreground">{s.desc}</p>
-              {i < 2 && (
-                <ArrowRight className="hidden md:block absolute top-1/2 -right-4 -translate-y-1/2 h-7 w-7 text-primary/30" />
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="container pb-20 md:pb-28">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-hero p-10 md:p-16 text-primary-foreground text-center shadow-elegant">
-          <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-white/10 blur-3xl" aria-hidden />
-          <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-accent/30 blur-3xl" aria-hidden />
-          <div className="relative">
-            <h2 className="font-display text-3xl md:text-5xl font-bold tracking-tight">Need an appliance fixed today?</h2>
-            <p className="mt-4 text-primary-foreground/90 text-lg max-w-xl mx-auto">
-              Book a same-day visit from a certified FixFast technician anywhere in Delhi.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3 justify-center">
-              <Button asChild variant="cta" size="lg"><Link to="/contact">Book Service Now</Link></Button>
-              <Button asChild variant="hero" size="lg"><a href="tel:+911140000000">Call +91 11 4000 0000</a></Button>
+      {/* CTA Section */}
+      <section className="py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/5" />
+        <div className="container relative z-10">
+          <div className="glass-card rounded-[3rem] p-12 md:p-20 text-center max-w-5xl mx-auto overflow-hidden relative">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-[100px]" />
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/20 rounded-full blur-[100px]" />
+            
+            <div className="relative z-10">
+              <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-6">
+                Ready to restore your home?
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
+                Join thousands of Delhi residents who trust FixFast for their premium appliance repair needs.
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Button asChild size="lg" className="h-14 px-10 text-lg rounded-full bg-gradient-cta shadow-elegant">
+                  <Link to="/contact">Schedule a Visit</Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="h-14 px-10 text-lg rounded-full glass hover:bg-secondary/50">
+                  <a href="tel:+911140000000">Call Support</a>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
