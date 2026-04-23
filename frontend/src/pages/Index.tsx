@@ -29,10 +29,10 @@ const Index = () => {
     name: "FixFast Services",
     description: "Home appliance repair in Delhi — AC, refrigerator, washing machine and microwave repair.",
     url: "https://fixfastservices.in",
-    telephone: "+91-11-4000-0000",
+    telephone: "+91-8235445601",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Connaught Place",
+      streetAddress: "B-12, Connaught Place",
       addressLocality: "New Delhi",
       postalCode: "110001",
       addressCountry: "IN",
@@ -81,23 +81,11 @@ const Index = () => {
               </Button>
             </div>
             
-            <div className="mt-12 flex items-center gap-6 p-4 rounded-2xl glass-card inline-flex">
-              <div className="flex -space-x-3">
-                {[
-                  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces",
-                  "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&crop=faces",
-                  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=faces",
-                  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=faces"
-                ].map((src, i) => (
-                  <img key={i} src={src} alt="Customer" className="h-12 w-12 rounded-full border-2 border-background object-cover shadow-sm" />
-                ))}
+            <div className="mt-12 flex items-center gap-4">
+              <div className="flex items-center gap-1 text-amber-500">
+                {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 fill-current" />)}
               </div>
-              <div className="flex flex-col">
-                <div className="flex items-center gap-1 text-amber-500">
-                  {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
-                </div>
-                <span className="text-sm font-medium mt-1">Trusted by 50,000+ homes</span>
-              </div>
+              <span className="text-sm font-semibold mt-1 text-foreground">Rated 4.8/5 by 50,000+ Customers</span>
             </div>
           </div>
 
@@ -139,7 +127,7 @@ const Index = () => {
                 <Users className="h-7 w-7" />
               </div>
               <div>
-                <div className="font-display text-2xl md:text-3xl font-bold text-foreground">Trusted by 50,000+ homes</div>
+                <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground">Trusted by 50,000+ homes</h2>
                 <div className="text-sm font-medium text-muted-foreground flex items-center gap-1.5 mt-1">
                   <MapPin className="h-4 w-4" /> Serving customers across Delhi
                 </div>
@@ -158,6 +146,62 @@ const Index = () => {
                   <span className="text-sm font-semibold text-foreground/80">{item}</span>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Visuals Grid Section */}
+      <section className="py-24 relative overflow-hidden bg-gradient-soft border-b border-border/50">
+        <div className="container">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-6">Trusted by 50,000+ Homes Across Delhi</h2>
+            <p className="text-xl text-muted-foreground leading-relaxed">
+              We bring smiles to homes every day with our fast, professional, and reliable appliance repair services.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {/* Image 1: Happy Customer / Family */}
+            <div className="group relative overflow-hidden rounded-[2rem] aspect-square shadow-elegant">
+              <img 
+                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop" 
+                alt="Happy family in their modern home" 
+                className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 p-8 w-full">
+                <h3 className="font-display text-2xl font-bold text-white mb-2">Happy Customers</h3>
+                <p className="text-white/80 font-medium">Restoring comfort to your home.</p>
+              </div>
+            </div>
+
+            {/* Image 2: Technician at work */}
+            <div className="group relative overflow-hidden rounded-[2rem] aspect-square shadow-elegant md:translate-y-8">
+              <img 
+                src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?q=80&w=1000&auto=format&fit=crop" 
+                alt="Professional technician repairing appliance" 
+                className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 p-8 w-full">
+                <h3 className="font-display text-2xl font-bold text-white mb-2">Professional Technicians</h3>
+                <p className="text-white/80 font-medium">Certified experts for every brand.</p>
+              </div>
+            </div>
+
+            {/* Image 3: Reliable Service / Home */}
+            <div className="group relative overflow-hidden rounded-[2rem] aspect-square shadow-elegant">
+              <img 
+                src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1000&auto=format&fit=crop" 
+                alt="Modern kitchen appliances functioning perfectly" 
+                className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-accent/90 via-accent/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 p-8 w-full">
+                <h3 className="font-display text-2xl font-bold text-white mb-2">Reliable Service</h3>
+                <p className="text-white/80 font-medium">Genuine parts and lasting repairs.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -275,7 +319,7 @@ const Index = () => {
                     {t.name.charAt(0)}
                   </div>
                   <div>
-                    <div className="font-bold text-foreground">{t.name}</div>
+                    <h3 className="font-bold text-foreground">{t.name}</h3>
                     <div className="text-xs text-muted-foreground">{t.location}</div>
                   </div>
                 </div>
@@ -363,14 +407,16 @@ const Index = () => {
           
           <div className="flex items-center justify-center gap-6">
             {[
-              { icon: Facebook, label: "Facebook" },
-              { icon: Instagram, label: "Instagram" },
-              { icon: MessageCircle, label: "WhatsApp" },
-              { icon: Youtube, label: "YouTube" },
+              { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/aloksharma1097" },
+              { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/apnaudyog1/" },
+              { icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/918235445601" },
+              { icon: Youtube, label: "YouTube", href: "https://youtube.com/@alokk_sharma?si=QfOgtdr1r8gU3HfC" },
             ].map((social) => (
               <a 
                 key={social.label}
-                href="#" 
+                href={social.href}
+                target="_blank"
+                rel="noreferrer"
                 className="h-14 w-14 rounded-2xl glass-card flex items-center justify-center text-foreground hover:bg-primary hover:text-white hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-elegant"
                 aria-label={social.label}
               >
@@ -401,7 +447,7 @@ const Index = () => {
                   <Link to="/contact">Schedule a Visit</Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="h-14 px-10 text-lg rounded-full glass hover:bg-secondary/50">
-                  <a href="tel:+911140000000">Call Support</a>
+                  <a href="tel:+918235445601">Call Support</a>
                 </Button>
               </div>
             </div>
