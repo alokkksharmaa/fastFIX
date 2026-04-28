@@ -7,10 +7,10 @@ import heroImg from "@/assets/hero-technician.jpg";
 const About = () => (
   <>
     <SEO
-      title="About FixFast Services | Appliance Repair Experts in Delhi"
-      description="Learn about FixFast Services — Delhi's trusted home appliance repair company with 10+ years of experience, certified technicians and 50,000+ happy customers."
+      title="About FastFixx Services | Appliance Repair Experts in Delhi"
+      description="Learn about FastFixx Services — Delhi's trusted home appliance repair company with 10+ years of experience, certified technicians and 50,000+ happy customers."
       path="/about"
-      keywords="about FixFast, appliance repair company Delhi"
+      keywords="about FastFixx, appliance repair company Delhi"
     />
 
     <section className="relative overflow-hidden bg-gradient-soft">
@@ -33,7 +33,7 @@ const About = () => (
           <div className="absolute -inset-4 rounded-[2rem] bg-gradient-hero opacity-15 blur-2xl" aria-hidden />
           <img
             src={heroImg}
-            alt="FixFast technicians at work in Delhi"
+            alt="FastFixx technicians at work in Delhi"
             className="relative rounded-[2rem] shadow-elegant w-full h-auto object-cover"
           />
         </div>
@@ -41,7 +41,7 @@ const About = () => (
           <span className="text-sm font-semibold text-primary uppercase tracking-wider">Our story</span>
           <h2 className="mt-2 font-display text-3xl md:text-4xl font-bold tracking-tight">A decade of doorstep repairs.</h2>
           <p className="mt-5 text-muted-foreground leading-relaxed">
-            FixFast Services was founded in 2014 with one simple goal — make
+            FastFixx Services was founded in 2014 with one simple goal — make
             appliance repair in Delhi easy, transparent and dependable. What started
             as a small two-person team has grown into a network of 40+ certified
             technicians serving thousands of homes and offices across Delhi NCR.

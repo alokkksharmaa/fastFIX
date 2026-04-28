@@ -26,9 +26,9 @@ const Index = () => {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: "FixFast Services",
+    name: "FastFixx Services",
     description: "Home appliance repair in Delhi — AC, refrigerator, washing machine and microwave repair.",
-    url: "https://fixfastservices.in",
+    url: "https://fastfixxservices.in",
     telephone: "+91-8235445601",
     address: {
       "@type": "PostalAddress",
@@ -44,7 +44,7 @@ const Index = () => {
   return (
     <>
       <SEO
-        title="Home Appliance Repair in Delhi | FixFast Services"
+        title="Home Appliance Repair in Delhi | FastFixx Services"
         description="Trusted home appliance repair in Delhi for AC, refrigerator, washing machine & microwave. Same-day service, affordable pricing, expert technicians."
         path="/"
         keywords="home appliance repair in Delhi, AC repair in Delhi, washing machine repair, refrigerator repair service, affordable appliance repair, same day repair, appliance repair near me"
@@ -245,7 +245,7 @@ const Index = () => {
       <section className="py-24 bg-gradient-soft border-y border-border/50">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-6">Why Customers Trust FixFast Services</h2>
+            <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-6">Why Customers Trust FastFixx Services</h2>
             <p className="text-xl text-muted-foreground leading-relaxed">
               We deliver more than just repairs; we deliver peace of mind.
             </p>
@@ -440,7 +440,7 @@ const Index = () => {
                 Ready to restore your home?
               </h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
-                Join thousands of Delhi residents who trust FixFast for their premium appliance repair needs.
+                Join thousands of Delhi residents who trust FastFixx for their premium appliance repair needs.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button asChild size="lg" className="h-14 px-10 text-lg rounded-full bg-gradient-cta shadow-elegant hover:opacity-90 transition-opacity">

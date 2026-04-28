@@ -12,7 +12,7 @@ const gradients = [
 const Blog = () => (
   <>
     <SEO
-      title="Appliance Care Blog | Tips & Guides | FixFast Services"
+      title="Appliance Care Blog | Tips & Guides | FastFixx Services"
       description="Read expert tips on AC, refrigerator and washing machine maintenance. Practical guides to keep your home appliances running longer."
       path="/blog"
       keywords="appliance care blog, AC maintenance tips, washing machine tips, refrigerator tips"

@@ -23,8 +23,8 @@ const Contact = () => {
   return (
     <>
       <SEO
-        title="Contact FixFast Services | Book Appliance Repair in Delhi"
-        description="Contact FixFast Services for fast appliance repair in Delhi. Call, email or fill in the form to book a same-day technician visit."
+        title="Contact FastFixx Services | Book Appliance Repair in Delhi"
+        description="Contact FastFixx Services for fast appliance repair in Delhi. Call, email or fill in the form to book a same-day technician visit."
         path="/contact"
         keywords="contact appliance repair Delhi, book appliance technician"
       />
@@ -135,7 +135,7 @@ const Contact = () => {
                   allowFullScreen 
                   loading="lazy" 
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="FixFast Services Google Maps Location"
+                  title="FastFixx Services Google Maps Location"
                 ></iframe>
               </div>
               

@@ -8,7 +8,7 @@ interface SEOProps {
   jsonLd?: object;
 }
 
-const SITE_URL = "https://fixfastservices.in";
+const SITE_URL = "https://fastfixxservices.in";
 
 const SEO = ({ title, description, path = "/", keywords, jsonLd }: SEOProps) => {
   const url = `${SITE_URL}${path}`;

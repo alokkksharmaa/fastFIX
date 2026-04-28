@@ -11,7 +11,7 @@ const Footer = () => {
               <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-hero text-white shadow-elegant">
                 <Wrench className="h-5 w-5" />
               </span>
-              <span>FixFast<span className="text-primary">.</span></span>
+              <span>FastFixx<span className="text-primary">.</span></span>
             </Link>
             <p className="text-background/70 text-sm leading-relaxed max-w-xs">
               Delhi's most trusted home appliance repair service. Fast, reliable, and affordable solutions for all your appliance problems.
@@ -69,7 +69,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-16 pt-8 border-t border-background/10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-background/50">
-          <p>© {new Date().getFullYear()} FixFast Services. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} FastFixx Services. All rights reserved.</p>
           <p>Designed for excellence in Delhi NCR.</p>
         </div>
       </div>

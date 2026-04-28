@@ -34,11 +34,11 @@ const Header = () => {
       )}
     >
       <div className="container flex h-16 md:h-20 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2.5 font-display font-bold text-xl" aria-label="FixFast Services Home">
+        <Link to="/" className="flex items-center gap-2.5 font-display font-bold text-xl" aria-label="FastFixx Services Home">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-hero text-white shadow-elegant">
             <Wrench className="h-5 w-5" />
           </span>
-          <span className="tracking-tight text-foreground">FixFast<span className="text-primary">.</span></span>
+          <span className="tracking-tight text-foreground">FastFixx<span className="text-primary">.</span></span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-1 rounded-full border border-border/40 bg-background/40 backdrop-blur-md p-1.5 shadow-sm" aria-label="Primary">

@@ -1,6 +1,6 @@
-# FixFast Services 🛠️
+# FastFixx Services 🛠️
 
-FixFast Services is a premium, high-conversion home appliance repair platform built for the Delhi NCR region. It offers a seamless, modern web experience for booking repair services for ACs, Refrigerators, Washing Machines, and Microwaves. 
+FastFixx Services is a premium, high-conversion home appliance repair platform built for the Delhi NCR region. It offers a seamless, modern web experience for booking repair services for ACs, Refrigerators, Washing Machines, and Microwaves. 
 
 Designed with a focus on trust, SEO, and premium SaaS aesthetics, this frontend application ensures a fast, reliable, and user-friendly experience.
 
@@ -95,4 +95,4 @@ For service inquiries or support:
 
 ---
 
-*Note: This repository was recently restructured to focus entirely on a modern frontend architecture for FixFast Services.*
+*Note: This repository was recently restructured to focus entirely on a modern frontend architecture for FastFixx Services.*

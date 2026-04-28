@@ -7,7 +7,7 @@ import { services } from "@/data/services";
 const Services = () => (
   <>
     <SEO
-      title="Appliance Repair Services in Delhi | FixFast Services"
+      title="Appliance Repair Services in Delhi | FastFixx Services"
       description="Affordable appliance repair services in Delhi — same day AC, refrigerator, washing machine and microwave repair by certified technicians."
       path="/services"
       keywords="appliance repair services, affordable appliance repair, same day appliance repair, Delhi"
@@ -28,7 +28,7 @@ const Services = () => (
           <span className="text-gradient">reimagined.</span>
         </h1>
         <p className="mt-8 max-w-2xl mx-auto text-xl text-muted-foreground leading-relaxed animate-fade-up" style={{ animationDelay: '0.2s' }}>
-          From quick same-day fixes to complete part replacements, FixFast offers
+          From quick same-day fixes to complete part replacements, FastFixx offers
           premium, guaranteed appliance repair across Delhi NCR.
         </p>
       </div>

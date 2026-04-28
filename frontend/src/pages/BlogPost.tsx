@@ -15,14 +15,14 @@ const BlogPost = () => {
     "@type": "Article",
     headline: post.title,
     datePublished: post.date,
-    author: { "@type": "Organization", name: "FixFast Services" },
-    publisher: { "@type": "Organization", name: "FixFast Services" },
+    author: { "@type": "Organization", name: "FastFixx Services" },
+    publisher: { "@type": "Organization", name: "FastFixx Services" },
   };
 
   return (
     <>
       <SEO
-        title={`${post.title} | FixFast Services Blog`}
+        title={`${post.title} | FastFixx Services Blog`}
         description={post.excerpt}
         path={`/blog/${post.slug}`}
         jsonLd={jsonLd}
@@ -87,7 +87,7 @@ const BlogPost = () => {
           
           <div className="relative z-10">
             <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-4">Need an expert technician?</h2>
-            <p className="text-xl text-muted-foreground mb-10">Book a same-day FixFast service anywhere in Delhi NCR.</p>
+            <p className="text-xl text-muted-foreground mb-10">Book a same-day FastFixx service anywhere in Delhi NCR.</p>
             <Button asChild size="lg" className="h-14 px-10 text-lg rounded-full bg-gradient-cta shadow-elegant"><Link to="/contact">Book Service Now</Link></Button>
           </div>
         </div>
